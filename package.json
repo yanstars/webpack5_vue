@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "a template of vue",
   "main": "webpack.config.js",
-  "keywords": ["vue","webpack5"],
+  "keywords": [
+    "vue",
+    "webpack5"
+  ],
   "author": "yanstars",
   "license": "ISC",
   "dependencies": {
@@ -41,6 +44,7 @@
     "terser-webpack-plugin": "^5.1.1",
     "vue": "^2.6.12",
     "vue-loader": "^15.9.6",
+    "vue-reservoir": "^2.4.3",
     "vue-router": "^3.5.1",
     "vue-template-compiler": "^2.6.12",
     "vuex": "^3.6.2",

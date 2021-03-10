@@ -1,7 +1,7 @@
 <template>
   <div>
     <span>{{title}}</span>
-    <el-button> back </el-button>
+    <!-- <el-button> back </el-button> -->
   </div>
 </template>
 
