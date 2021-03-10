@@ -36,6 +36,9 @@
     // MINI CSS
     "mini-css-extract-plugin": "^1.3.9",
     "css-minimizer-webpack-plugin": "^1.2.0",
+    "optimize-css-assets-webpack-plugin": "^4.0.0",
+    "purgecss-webpack-plugin": "^4.0.2",
+    
     // SASS
     "sass-loader": "^11.0.1",
     "node-sass": "^5.0.0",
@@ -48,7 +51,6 @@
 ### other
 
 ```json
-    "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^5.2.0",
     "node-notifier": "^9.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
@@ -64,3 +66,5 @@
 - friendly-errors-webpack-plugin
 - node-notifier
 - DefinePlugin
+- speed-measure-webpack-plugin
+- copy-webpack-plugin
