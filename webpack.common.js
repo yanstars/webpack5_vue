@@ -5,8 +5,10 @@ const { VueLoaderPlugin } = require('vue-loader')
 module.exports = {
   resolve: {
     mainFields: ['jsnext:main', 'module', 'browser', 'main'],
-    // TODO
-    // alias:{}
+    extensions: ['.js', '.vue', '.json'],
+    alias:{
+      'vue$': 'vue/dist/vue.esm.js',
+    }
   },
   entry: {
     index: "./src/index.js"
