@@ -31,7 +31,7 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    clean: true,
+    clean: true  //  不需要 CleanWebpackPlugin了
   },
   module: {
     rules: [
@@ -39,9 +39,6 @@ module.exports = {
         test: /\.vue$/,
         use: {
           loader: "vue-loader",
-          options: {
-            cacheDirectory: true
-          }
         }
       },
       {
@@ -52,6 +49,9 @@ module.exports = {
         ),
         use: {
           loader: "babel-loader",
+          options: {
+            cacheDirectory: true
+          }
         }
       },
       {

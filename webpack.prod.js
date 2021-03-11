@@ -3,8 +3,7 @@ const common = require('./webpack.common.js')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-// TODO 貌似并不太需要了 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = merge(common, {
   module: {
@@ -13,6 +12,7 @@ module.exports = merge(common, {
         test: /\.(scss|css)$/,
         use: [
           MiniCssExtractPlugin.loader,
+          // "style-loader",
           {
             loader: 'css-loader',
             options: {
@@ -29,12 +29,17 @@ module.exports = merge(common, {
   },
 
   mode: 'production',
+  externals: {
+    vue: 'Vue',
+  },
   resolve: {
     extensions: ['.js', '.jsx', '.json']
   },
   plugins: [
-    new MiniCssExtractPlugin(),
-    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'style/[name].css'
+    }),
+    new OptimizeCssAssetsWebpackPlugin() // 压缩css
 
   ],
   optimization: {
