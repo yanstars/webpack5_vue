@@ -6,7 +6,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = merge(common, {
-  
   module: {
     rules: [
       {
@@ -28,11 +27,7 @@ module.exports = merge(common, {
       },
     ],
   },
-
   mode: 'production',
-  externals: {
-    vue: 'Vue',
-  },
   resolve: {
     extensions: ['.js', '.jsx', '.json']
   },
@@ -44,21 +39,27 @@ module.exports = merge(common, {
 
   ],
   optimization: {
-    minimize: true, // 开始最小化
+    minimi:false,
     minimizer: [
       new TerserWebpackPlugin(),
       new CssMinimizerPlugin()
     ],
-    runtimeChunk: 'single',
-    moduleIds: 'deterministic',
     splitChunks: {
       cacheGroups: {
-        vendor: {
+        vendors: {
+          name: 'chunk-vendors',
           test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all',
+          priority: -10,
+          chunks: 'initial'
         },
-      },
+        common: {
+          name: 'chunk-common',
+          minChunks: 2,
+          priority: -20,
+          chunks: 'initial',
+          reuseExistingChunk: true
+        }
+      }
     },
   },
   performance: {

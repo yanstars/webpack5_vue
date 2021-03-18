@@ -36,7 +36,12 @@ module.exports = merge(common, {
 
   mode: 'production',
   externals: {
-    vue: 'Vue',
+    vue: {
+      root: 'Vue',
+      commonjs: 'vue',
+      commonjs2: 'vue',
+      amd: 'vue'
+    }
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json']

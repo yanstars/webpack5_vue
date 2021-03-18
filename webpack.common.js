@@ -1,12 +1,13 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
+const webpack = require("webpack")
 
 module.exports = {
   resolve: {
     mainFields: ['jsnext:main', 'module', 'browser', 'main'],
     extensions: ['.js', '.vue', '.json'],
-    alias:{
+    alias: {
       'vue$': 'vue/dist/vue.esm.js',
     }
   },
@@ -26,14 +27,14 @@ module.exports = {
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       // title: 'Production', title 和 tempalte 起,冲突
-      // TODO
       template: "./index.html"
+    }),
+    new webpack.DefinePlugin({
+      "RUN_ENV": JSON.stringify(process.env.RUN_ENV),
     }),
   ],
   output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    clean: true  //  不需要 CleanWebpackPlugin了
+    clean: true  //  不需要 CleanWebpackPlugin  了
   },
   module: {
     rules: [
