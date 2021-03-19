@@ -20,6 +20,8 @@
     "babel-loader": "^8.2.2",
     "@babel/preset-env": "^7.13.9",
     // PLUGIN
+    "@babel/runtime-corejs3": "^7.13.10",
+    "@babel/plugin-transform-runtime": "^7.13.10",
     "@babel/plugin-proposal-nullish-coalescing-operator": "^7.13.8",
     "@babel/plugin-proposal-optional-chaining": "^7.13.8",
     "@babel/plugin-proposal-pipeline-operator": "^7.12.13",
@@ -38,7 +40,7 @@
     "css-minimizer-webpack-plugin": "^1.2.0",
     "optimize-css-assets-webpack-plugin": "^4.0.0",
     "purgecss-webpack-plugin": "^4.0.2",
-    
+
     // SASS
     "sass-loader": "^11.0.1",
     "node-sass": "^5.0.0",
