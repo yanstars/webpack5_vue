@@ -1,12 +1,15 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
+const webpack = require("webpack")
 
 module.exports = {
   resolve: {
     mainFields: ['jsnext:main', 'module', 'browser', 'main'],
-    // TODO
-    // alias:{}
+    extensions: ['.js', '.vue', '.json'],
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js',
+    }
   },
   entry: {
     index: "./src/index.js"
@@ -24,14 +27,14 @@ module.exports = {
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       // title: 'Production', title 和 tempalte 起,冲突
-      // TODO
       template: "./index.html"
+    }),
+    new webpack.DefinePlugin({
+      "RUN_ENV": JSON.stringify(process.env.RUN_ENV),
     }),
   ],
   output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    clean: true,
+    clean: true  //  不需要 CleanWebpackPlugin  了
   },
   module: {
     rules: [
@@ -39,19 +42,20 @@ module.exports = {
         test: /\.vue$/,
         use: {
           loader: "vue-loader",
-          options: {
-            cacheDirectory: true
-          }
         }
       },
       {
         test: /\.m?js$/,
-        exclude: file => (
-          /node_modules/.test(file) &&
-          !/\.vue\.js/.test(file)
-        ),
+        exclude: /(node_modules)/,
+        include: [  // 没设置此处时，引用dist下文件 报错module  export is not defined
+          path.join(__dirname, "src"),
+          path.join(__dirname, "dist"),
+        ],
         use: {
           loader: "babel-loader",
+          options: {
+            cacheDirectory: true
+          }
         }
       },
       {

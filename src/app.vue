@@ -1,30 +1,24 @@
 <template>
   <div id="main">
-    <my-header title="this is a testTiele"></my-header>
-    <img src="./test.png"
-         alt="error">
-    <p>this is pic</p>
-    <span :class="flag ? 'classone' : ' classtwo'">this is text </span>
-    <el-button @click="flag =!flag">change</el-button>
+    <button @click="test">notice</button>
   </div>
 </template>
 
 <script>
-  import MyHeader from './componets/header.vue'
   export default {
     name: 'App',
-    components: {
-      MyHeader,
-    },
-    data () {
-      return {
-        flag: true
+    methods: {
+      test () {
+        $msg({
+          message: 'this is a test msg box hhhh ',
+          time: 2000
+        })
       }
     },
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
   @import "./index.scss";
   .classone {
     color: $text-color;
