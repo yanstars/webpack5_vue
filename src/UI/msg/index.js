@@ -22,4 +22,6 @@ const install = () => {
 
   window['$msg'] = msg
 }
-export default install
+export default {
+  install
+}

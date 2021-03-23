@@ -46,10 +46,11 @@ module.exports = {
       },
       {
         test: /\.m?js$/,
-        exclude: file => (
-          /node_modules/.test(file) &&
-          !/\.vue\.js/.test(file)
-        ),
+        exclude: /(node_modules)/,
+        include: [  // 没设置此处时，引用dist下文件 报错module  export is not defined
+          path.join(__dirname, "src"),
+          path.join(__dirname, "dist"),
+        ],
         use: {
           loader: "babel-loader",
           options: {

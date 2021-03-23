@@ -1,6 +1,6 @@
 <template>
   <div id="main">
-    <Ybutton @click.native="test">notice</Ybutton>
+    <button @click="test">notice</button>
   </div>
 </template>
 
