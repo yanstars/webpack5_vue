@@ -1,29 +1,21 @@
 <template>
   <div id="main">
-    <button @click="test">notice</button>
+    <h1>hello !</h1>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'App',
-    methods: {
-      test () {
-        $msg({
-          message: 'this is a test msg box hhhh ',
-          time: 2000
-        })
-      }
-    },
-  }
+export default {
+  name: "App",
+}
 </script>
 
-<style lang="scss" >
-  @import "./index.scss";
-  .classone {
-    color: $text-color;
-  }
-  .classtwo {
-    color: $body-color;
-  }
+<style lang="scss">
+@import "./index.scss";
+.classone {
+  color: $text-color;
+}
+.classtwo {
+  color: $body-color;
+}
 </style>

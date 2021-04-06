@@ -38,7 +38,6 @@
     // MINI CSS
     "mini-css-extract-plugin": "^1.3.9",
     "css-minimizer-webpack-plugin": "^1.2.0",
-    "optimize-css-assets-webpack-plugin": "^4.0.0",
     "purgecss-webpack-plugin": "^4.0.2",
 
     // SASS

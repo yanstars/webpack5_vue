@@ -2,6 +2,8 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 const webpack = require("webpack")
+const PrettierPlugin = require('prettier-webpack-plugin')
+const ESLintPlugin = require('eslint-webpack-plugin')
 
 module.exports = {
   resolve: {
@@ -32,6 +34,14 @@ module.exports = {
     new webpack.DefinePlugin({
       "RUN_ENV": JSON.stringify(process.env.RUN_ENV),
     }),
+    // ESLint configuration
+    new ESLintPlugin({
+      files: ['.', 'src', 'config'],
+      formatter: 'table',
+    }),
+
+    // Prettier configuration
+    new PrettierPlugin(),
   ],
   output: {
     clean: true  //  不需要 CleanWebpackPlugin  了

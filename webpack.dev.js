@@ -1,6 +1,6 @@
 const { merge } = require('webpack-merge')
 const common = require('./webpack.common.js')
-var FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+const FriendlyErrorsWebpackPlugin = require('@soda/friendly-errors-webpack-plugin')
 
 
 module.exports = merge(common, {

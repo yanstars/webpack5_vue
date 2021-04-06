@@ -3,7 +3,6 @@ const common = require('./webpack.common.js')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = merge(common, {
   module: {
@@ -35,8 +34,6 @@ module.exports = merge(common, {
     new MiniCssExtractPlugin({
       filename: 'style/[name].css'
     }),
-    new OptimizeCssAssetsWebpackPlugin() // 压缩css
-
   ],
   optimization: {
     minimi:false,
